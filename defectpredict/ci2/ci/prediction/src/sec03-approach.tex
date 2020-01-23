@@ -1,0 +1,85 @@
+% !TeX root = ../main.tex
+
+\section{Methodology}\label{sec:approach}
+
+\subsection{Overview}
+
+\subsection{Feature Extraction}
+%table1
+\begin{table}[!htbp] 
+\setlength{\abovecaptionskip}{0.2cm}
+\caption{\large{\textbf{Previous Build}}}
+
+\begin{tabular}{|p{7em}|p{16em}|}
+\hline
+ \multicolumn{1}{|c|}{\textbf{Feature}} &\multicolumn{1}{|c|}{\textbf{Description of Feature}}\\
+\hline
+ prev\_bl\_cluster & The failure type of previous build \\ \hline
+ prev\_src\_churn & The lines of source code change of the previous build \\ \hline
+ prev\_test\_churn & The lines of test code change of the previous build \\ \hline
+ prev\_tr\_status & The result of last build(”passed”, ”failed” or ”errored”) \\ \hline
+\end{tabular}
+\end{table}
+%table2
+\begin{table}[!htbp] 
+\setlength{\abovecaptionskip}{0.2cm}
+\caption{\large{\textbf{Build History}}}
+
+\begin{tabular}{|p{7em}|p{16em}|}
+\hline
+ \multicolumn{1}{|c|}{\textbf{Feature}} &\multicolumn{1}{|c|}{\textbf{Description of Feature}}\\
+\hline
+ prev\_pass\_modify & F1: the changed file between previous build and its last latest pass build ;F2:the changed file between previous build and current build.A boolen to indicate if F1 and F2 has a non-empty intersection \\ \hline
+ errorfile\_modified & If the previous build is failed, the modified file number of  the wrong files showed in the build log \\ \hline
+ failed\_build\_rate & The percentage of failed build before the current build \\ \hline
+
+
+\end{tabular}
+\end{table}
+
+%table3
+\begin{table}[!htbp] 
+\setlength{\abovecaptionskip}{0.2cm}
+\caption{\large{\textbf{File Difference Between Two Build}}}
+
+\begin{tabular}{|p{7em}|p{16em}|}
+\hline
+ \multicolumn{1}{|c|}{\textbf{Feature}} &\multicolumn{1}{|c|}{\textbf{Description of Feature}}\\
+\hline
+ gh\_config\_file & Number of build script file changes (eg:pom.xml) \\ \hline
+ gh\_rc\_files & Number of src file changes \\ \hline
+ gh\_src\_churn & Number of lines of src code changes\\ \hline
+ gh\_test\_file & Number of test file changed\\ \hline
+ gh\_test\_churn & Number of lines of test code changed\\ \hline
+ gh\_other\_files & Number of other file changed\\ \hline
+ gh\_files\_modified & Number of file modified\\ \hline
+ gh\_files\_deleted & Number of file deleted\\ \hline
+ gh\_file\_added & Number of file added\\ \hline
+ src\_modified & Program source code changed instead of comment modification\\ \hline
+ line\_added & The sum of added line in all files\\ \hline
+ line\_deleted & The number of deleted line in all files\\ \hline
+ num\_author& Number of author or committer between two build commit\\ \hline
+ diff\_time &The interval between the previous build start time and current build start time\\ \hline
+ 
+\end{tabular}
+\end{table}
+\begin{table}[!htbp] 
+\setlength{\abovecaptionskip}{0.2cm}
+\caption{\large{\textbf{Current Build}}}
+
+\begin{tabular}{|p{7em}|p{16em}|}
+\hline
+ \multicolumn{1}{|c|}{\textbf{Feature}} &\multicolumn{1}{|c|}{\textbf{Description of Feature}}\\
+\hline
+ gh\_teamsize& Size of the team contributing to this project within 3 months of last commit\\ \hline
+ num\_author& Number of author or committer between two build commit\\ \hline
+ diff\_time &The interval between the previous build start time and current build start time\\ \hline
+ day\_of\_week & The build started day of week(0 to 6)\\ \hline
+
+ 
+\end{tabular}
+\end{table}
+
+
+\subsection{Prediction Model}
+
